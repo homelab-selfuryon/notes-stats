@@ -1,0 +1,47 @@
+[package]
+name = "notes-stats"
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+publish = false
+description = "Statistics over notes-api, called with a projected ServiceAccount token"
+
+[dependencies]
+anyhow = "1"
+axum = "0.8"
+# Plain HTTP inside the cluster: no TLS feature, so no TLS stack and no CA certificates needed.
+reqwest = { version = "0.13", default-features = false, features = ["json"] }
+secrecy = "0.10"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+tokio = { version = "1", features = [
+  "macros",
+  "rt-multi-thread",
+  "signal",
+  "net",
+  "time",
+  "fs",
+  "sync",
+] }
+tower-http = { version = "0.7", features = ["trace", "timeout"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+
+[dev-dependencies]
+http-body-util = "0.1"
+tempfile = "3"
+tower = { version = "0.5", features = ["util"] }
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+unwrap_used = "deny"
+expect_used = "warn"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = true
+panic = "abort"
