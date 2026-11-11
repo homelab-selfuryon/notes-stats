@@ -29,9 +29,9 @@ tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
 
 [dev-dependencies]
-http-body-util = "0.1"
-tempfile = "3"
-tower = { version = "0.5", features = ["util"] }
+http-body-util = "=0.1.5"
+tempfile = "=3.27.0"
+tower = { version = "=0.5.3", features = ["util"] }
 
 [lints.rust]
 unsafe_code = "forbid"
