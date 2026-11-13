@@ -56,5 +56,5 @@ The HTTP client has no TLS stack (the call stays inside the cluster over plain H
 token and restricted by network policy). Configuration: `NOTES_API_URL`, `NOTES_API_TOKEN_FILE`,
 `UPSTREAM_TIMEOUT_SECS` (3), `LOG_LEVEL`, `SHUTDOWN_DELAY_SECS` (2), `REQUEST_TIMEOUT_SECS` (30).
 
-Delivery (preview per pull request, release-please, tag → staging, promote → prod) is the template's: see its
+Delivery (preview per pull request labelled `preview`, release-please, tag → staging, promote → prod) is the template's: see its
 README. Commits follow Conventional Commits and are signed.
